@@ -111,5 +111,25 @@ void kernel_main() {
    * yet, '\n' will produce some VGA specific character instead.
    * This is normal.
    */
+
+  terminal_color = make_color(COLOR_RED, COLOR_BLACK);
   terminal_writestring("Hello, kernel World!\n");
+
+  for ( int i = 1; i < 5; i++ ) {
+    terminal_color = make_color(COLOR_WHITE, COLOR_BLACK);
+    terminal_writestring("Hello, kernel World!\n");
+  }
+
+  for ( int i = 1; i < 18; i++ ) {
+    terminal_color = make_color(COLOR_BLUE, COLOR_BLACK);
+    terminal_writestring("Hello, kernel World!\n");
+  }
+
+  for ( int i = 1; i < 5; i++ ) {
+    terminal_color = make_color(COLOR_GREEN, COLOR_BLACK);
+    terminal_writestring("Hello, kernel World!\n");
+  }
+
+
+  
 }
