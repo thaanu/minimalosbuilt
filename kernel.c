@@ -96,8 +96,14 @@ void terminal_putchar(char c) {
  
 void terminal_writestring(const char* data) {
   size_t datalen = strlen(data);
-  for (size_t i = 0; i < datalen; i++)
-    terminal_putchar(data[i]);
+  for (size_t i = 0; i < datalen; i++) {
+    if (data[i] == '\n') {
+      terminal_column = 0;
+      terminal_row++;
+    } else {
+      terminal_putchar(data[i]);
+    }
+  }
 }
 
 #if defined(__cplusplus)
@@ -113,21 +119,21 @@ void kernel_main() {
    */
 
   terminal_color = make_color(COLOR_RED, COLOR_BLACK);
-  terminal_writestring("Hello, kernel World!\n");
+  terminal_writestring("Hello, kernel World! - by shan\n");
 
-  for ( int i = 1; i < 5; i++ ) {
+  for ( int i = 1; i <= 5; i++ ) {
     terminal_color = make_color(COLOR_WHITE, COLOR_BLACK);
-    terminal_writestring("Hello, kernel World!\n");
+    terminal_writestring("Hello, kernel World! - by shan\n");
   }
 
-  for ( int i = 1; i < 18; i++ ) {
+  for ( int i = 1; i <= 18; i++ ) {
     terminal_color = make_color(COLOR_BLUE, COLOR_BLACK);
-    terminal_writestring("Hello, kernel World!\n");
+    terminal_writestring("Hello, kernel World! - by shan\n");
   }
 
-  for ( int i = 1; i < 5; i++ ) {
+  for ( int i = 1; i <= 5; i++ ) {
     terminal_color = make_color(COLOR_GREEN, COLOR_BLACK);
-    terminal_writestring("Hello, kernel World!\n");
+    terminal_writestring("Hello, kernel World! - by shan\n");
   }
 
 
